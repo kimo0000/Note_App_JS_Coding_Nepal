@@ -1,0 +1,195 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: blueviolet;
+  padding: 25px;
+  height: 100vh;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.addNote {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.addNote.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+header {
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 6px 8px;
+  font-weight: 700;
+}
+.content {
+  width: 320px;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 10px;
+  border-radius: 12px;
+}
+.close {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close:hover {
+  transform: scale(1.04);
+}
+.new_note {
+  background-color: #fff;
+}
+.title,
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+:where(input, textarea) {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+}
+.content button {
+  padding: 10px;
+  background-color: blueviolet;
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.content button:hover {
+  opacity: 1;
+}
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 15px;
+}
+.add_note {
+  background: #fff;
+  /* width: calc(100% / 5 - 10px); */
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: blueviolet;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.add_note i {
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 25px;
+  border: 1px dashed blueviolet;
+  transition: 0.3s;
+}
+.add_note:hover i {
+  transform: scale(1.04);
+}
+.new_note {
+  padding: 10px;
+  border-radius: 8px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+.header_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.new_note p {
+  height: 80px;
+  overflow-y: scroll;
+}
+.new_note p::-webkit-scrollbar {
+  width: 0;
+}
+.new_note .setting {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.setting {
+  position: relative;
+}
+.setting .elips {
+  cursor: pointer;
+  color: blueviolet;
+}
+.setting .menu {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: scale(0);
+  transform-origin: bottom right;
+  pointer-events: none;
+  transition: transform 0.3s;
+}
+.setting.show .menu {
+  transform: scale(1);
+  pointer-events: auto;
+}
+.menu span {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.menu span:hover {
+  background-color: #ccc;
+}
